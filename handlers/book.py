@@ -27,6 +27,16 @@ np.set_printoptions(threshold=sys.maxsize)
 router = APIRouter()
 auth_handler = AuthToken()
 templates = Jinja2Templates(directory="templates")
+
+
+###Barcode
+@router.get("/create_barcode", response_class=HTMLResponse)
+def create_barcode(request:Request):
+    return templates.TemplateResponse(request=request, name="barcode.html", context={"books":[]})
+
+###Barcode
+
+
 @router.get("/students/{rfid}", tags=["student"])
 def get_student_byrfid(rfid: str, db: Session = Depends(get_db)):
     student = db.query(User).filter(User.rfid==rfid).first()
