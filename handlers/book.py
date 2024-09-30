@@ -30,7 +30,7 @@ templates = Jinja2Templates(directory="templates")
 
 @router.get("/download/apk")
 def download_apk():
-    file_path = "download/app.apk"
+    file_path = "downloads/app.apk"
     return FileResponse(path=file_path, filename="yourapp.apk", media_type='application/vnd.android.package-archive')
     
 ###Barcode
