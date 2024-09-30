@@ -28,7 +28,7 @@ router = APIRouter()
 auth_handler = AuthToken()
 templates = Jinja2Templates(directory="templates")
 
-@app.get("/download/apk")
+@router.get("/download/apk")
 def download_apk():
     file_path = "download/app.apk"
     return FileResponse(path=file_path, filename="yourapp.apk", media_type='application/vnd.android.package-archive')
