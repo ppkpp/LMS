@@ -19,7 +19,7 @@ import numpy as np
 from modules.utils import pagination
 import sys
 import datetime
-from fastapi.responses import HTMLResponse
+from fastapi.responses import HTMLResponse,FileResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 
