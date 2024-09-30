@@ -28,11 +28,19 @@ router = APIRouter()
 auth_handler = AuthToken()
 templates = Jinja2Templates(directory="templates")
 
-
+@app.get("/download/apk")
+def download_apk():
+    file_path = "download/app.apk"
+    return FileResponse(path=file_path, filename="yourapp.apk", media_type='application/vnd.android.package-archive')
+    
 ###Barcode
 @router.get("/create_barcode", response_class=HTMLResponse)
 def create_barcode(request:Request):
     return templates.TemplateResponse(request=request, name="barcode.html", context={"books":[]})
+    
+@router.get("/app_download", response_class=HTMLResponse)
+def create_barcode(request:Request):
+    return templates.TemplateResponse(request=request, name="download.html", context={"books":[]})
 
 ###Barcode
 
